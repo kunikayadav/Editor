@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <adminhtml_testimonials_index_index>
+        <reference name="content">
+            <block type="testimonials/adminhtml_page" name="testimonials_list"/>
+        </reference>
+    </adminhtml_testimonials_index_index>
+
+    <adminhtml_testimonials_index_new>
+        <update handle="adminhtml_testimonials_index_edit" />
+    </adminhtml_testimonials_index_new>
+
+    <adminhtml_testimonials_index_edit>
+        <update handle="editor"/>
+        <reference name="content">
+            <block type="testimonials/adminhtml_page_edit" name="testimonials_page_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="testimonials/adminhtml_page_edit_tabs" name="testimonials_page_edit_tabs">
+                <block type="testimonials/adminhtml_page_edit_tab_main" name="testimonials_page_edit_tab_main" />
+                <action method="addTab"><name>main_section</name><block>testimonials_page_edit_tab_main</block></action>
+				<!-- for adding new tab  button in admin side-->
+				<block type="testimonials/adminhtml_page_edit_tab_test" name="testimonials_page_edit_tab_test" />
+                <action method="addTab"><name>content_section</name><block>testimonials_page_edit_tab_test</block></action>
+            </block>
+        </reference>
+    </adminhtml_testimonials_index_edit>
+	
+	<adminhtml_testimonials_index_editor>
+        <reference name="content">
+            <block type="testimonials/adminhtml_editor" name="wysiwyg_editor_form"/>
+        </reference>
+    </adminhtml_testimonials_index_editor>
+</layout>
